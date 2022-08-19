@@ -20,3 +20,33 @@ Listar topicos -> kafka-topics.bat --bootstrap-server localhost:9092 --list
 Instalação do WSL 2 no Windows: https://docs.microsoft.com/pt-br/windows/wsl/install-manual
 
 Instalação do Docker: https://www.docker.com/products/docker-desktop
+
+Comando para executar o docker-compose.yaml -> docker-compose up -d
+
+create topic -> kafka-topics.bat --bootstrap-server localhost:29092 --create --topic teste --particions 2
+
+producer topic -> kafka-console-producer.bat --broker-list localhost:29092 --topic teste
+
+producer topic com chave e valor -> kafka-console-producer.bat --broker-list localhost:29092 --topic teste --property "parse.key=true" --property "key.separator=," 
+
+consumer topic com chave e valor -> kafka-console-consumer.bat --bootstrap-server localhost:29092 --topic teste --property "parse.key=true" --property "key.separator=," --group grupo1
+
+consumer topic com  valor somente -> kafka-console-consumer.bat --bootstrap-server localhost:29092 --topic teste --property "parse.key=false" --property "key.separator=," --group grupo1
+
+consumer topic -> kafka-console-consumer.bat --bootstrap-server localhost:29092 --topic teste
+
+consumer topic begin -> kafka-console-consumer.bat --bootstrap-server localhost:29092 --topic teste --from-beginning
+
+consumer topic group -> kafka-console-consumer.bat --bootstrap-server localhost:29092 --topic teste --group 1
+
+alterando partições topic -> kafka-topics.bat --bootstrap-server localhost:29092 --alter --topic teste --partitions 10
+
+informações topic -> kafka-topics.bat --bootstrap-server localhost:29092 --topic teste --describe
+
+delete topic -> kafka-topics.bat --bootstrap-server localhost:29092 --topic teste --delete - Com o windows não funciona, existe um bug
+list topic -> kafka-topics.bat --bootstrap-server localhost:29092 --topic teste --list
+
+
+Install Conduktor
+
+https://www.conduktor.io/download
